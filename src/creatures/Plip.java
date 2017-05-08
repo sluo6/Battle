@@ -19,6 +19,7 @@ public class Plip extends Creature {
     private int g;
     /** blue color. */
     private int b;
+    
 
     /** creates plip with energy equal to E. */
     public Plip(double e) {
@@ -55,11 +56,13 @@ public class Plip extends Creature {
      *  private static final variable. This is not required for this lab.
      */
     public void move() {
+    	energy = energy - 0.15;
     }
 
 
     /** Plips gain 0.2 energy when staying due to photosynthesis. */
     public void stay() {
+    	energy = energy + 0.2;
     }
 
     /** Plips and their offspring each get 50% of the energy, with none

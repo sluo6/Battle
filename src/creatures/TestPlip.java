@@ -21,7 +21,7 @@ public class TestPlip {
 
     @Test
     public void testBasics() {
-        Plip p = new Plip(2);
+        Plip p = new Plip(2.0);
         assertEquals(2, p.energy(), 0.01);
         assertEquals(new Color(99, 255, 76), p.color());
         p.move();
@@ -31,7 +31,7 @@ public class TestPlip {
         p.stay();
         assertEquals(1.90, p.energy(), 0.01);
         p.stay();
-        assertEquals(2.00, p.energy(), 0.01);
+        assertEquals(2.10, p.energy(), 0.01);
     }
 
     @Test
