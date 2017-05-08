@@ -97,11 +97,19 @@ public class Plip extends Creature {
     		return new Action(Action.ActionType.STAY);
     	}
     	else if (energy >= 1) {
-    		replicate();
+    		Direction moveDir = HugLifeUtils.randomEntry(empties);            
+    		return new Action(Action.ActionType.REPLICATE, moveDir);
     	}    	
     	else if (cloruses.size() > 0) {
-    		
+    		if (huglife.HugLifeUtils.random() < 0.5) {
+    			Direction moveDir = HugLifeUtils.randomEntry(empties);
+    			return new Action(Action.ActionType.MOVE, moveDir);
+    		}    		
     	}
+    	return new Action(Action.ActionType.STAY);
+    	
     }
-
 }
+    
+
+
