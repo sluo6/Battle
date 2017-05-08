@@ -31,7 +31,7 @@ public class TestPlip {
         p.stay();
         assertEquals(1.90, p.energy(), 0.01);
         p.stay();
-        assertEquals(2.10, p.energy(), 0.01);
+        assertEquals(2.00, p.energy(), 0.01);
     }
 
     @Test

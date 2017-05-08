@@ -62,7 +62,11 @@ public class Plip extends Creature {
 
     /** Plips gain 0.2 energy when staying due to photosynthesis. */
     public void stay() {
-    	energy = energy + 0.2;
+    	if (energy >= 1.8) {
+    		energy = 2.0;
+    	}
+    	else {energy = energy + 0.2;
+    	}    	
     }
 
     /** Plips and their offspring each get 50% of the energy, with none
