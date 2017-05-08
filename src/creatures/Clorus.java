@@ -13,21 +13,35 @@ import java.util.List;
  */
 
 public class Clorus extends Creature {
+	
+	/** red color. */
+    private int r = 34;
+    /** green color. */
+    private int g = 0;
+    /** blue color. */
+    private int b = 231;
 
-	public Clorus(String n) {
-		super(n);
-		// TODO Auto-generated constructor stub
+    /** creates Clorus with energy equal to E. */
+	public Clorus(double e) {
+		super("clorus");
+		energy = e;		
+	}
+	
+	/** creates Clorus with energy equals to 1. */
+	public Clorus() {
+		this(1);
 	}
 
+	/** when it moves, it loses energy of 0.03. */
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
-		
+		energy = energy - 0.03;		
 	}
 
+	/** when it attacks another creature, it gain that creature's energy. */
 	@Override
 	public void attack(Creature c) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -37,10 +51,10 @@ public class Clorus extends Creature {
 		return null;
 	}
 
+	/** when it stays, it loses energy of 0.01. */
 	@Override
 	public void stay() {
-		// TODO Auto-generated method stub
-		
+		energy = energy - 0.01;		
 	}
 
 	@Override
@@ -49,10 +63,10 @@ public class Clorus extends Creature {
 		return null;
 	}
 
+	/** returns the color of this creature */
 	@Override
 	public Color color() {
-		// TODO Auto-generated method stub
-		return null;
+		return color(r, g, b);
 	}
 
 }
