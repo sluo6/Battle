@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.List;
 
 /** An implementation of a motile pacifist photosynthesizer.
- *  @author Josh Hug
+ *  @author sluo6
  */
 public class Plip extends Creature {
 
@@ -23,9 +23,9 @@ public class Plip extends Creature {
     /** creates plip with energy equal to E. */
     public Plip(double e) {
         super("plip");
-        r = 0;
-        g = 0;
-        b = 0;
+        r = 99;
+        g = 255;
+        b = 76;
         energy = e;
     }
 
@@ -42,7 +42,7 @@ public class Plip extends Creature {
      *  that you get this exactly correct.
      */
     public Color color() {
-        g = 63;
+        g = 255;
         return color(r, g, b);
     }
 
