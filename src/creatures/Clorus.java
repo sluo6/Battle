@@ -41,14 +41,16 @@ public class Clorus extends Creature {
 	/** when it attacks another creature, it gain that creature's energy. */
 	@Override
 	public void attack(Creature c) {
-		
-		
+		energy = energy + c.energy();
 	}
 
+	/** when it replicates, it gives 50% of its energy to the baby. */
 	@Override
-	public Creature replicate() {
-		// TODO Auto-generated method stub
-		return null;
+	public Clorus replicate() {
+		energy = energy / 2;
+		double babyEnergy = energy;
+		Clorus baby = new Clorus(babyEnergy);
+		return baby;
 	}
 
 	/** when it stays, it loses energy of 0.01. */
@@ -59,8 +61,24 @@ public class Clorus extends Creature {
 
 	@Override
 	public Action chooseAction(Map<Direction, Occupant> neighbors) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Direction> empties = getNeighborsOfType(neighbors, "empty");
+		List<Direction> plips = getNeighborsOfType(neighbors, "plip");
+		if (empties.size() == 0) {
+			return new Action(Action.ActionType.STAY);
+		}
+		else if (plips.size() > 0) {
+			Direction atkDir = HugLifeUtils.randomEntry(plips);
+			return new Action(Action.ActionType.ATTACK, atkDir);
+		}
+		else if (energy >= 1) {
+			Direction rpDir = HugLifeUtils.randomEntry(empties);
+			return new Action(Action.ActionType.REPLICATE, rpDir);
+		}
+		else {
+			Direction mvDir = HugLifeUtils.randomEntry(empties);
+			return new Action(Action.ActionType.MOVE, mvDir);
+		}
+
 	}
 
 	/** returns the color of this creature */
