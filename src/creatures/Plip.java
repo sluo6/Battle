@@ -25,7 +25,7 @@ public class Plip extends Creature {
     public Plip(double e) {
         super("plip");
         r = 99;
-        g = 255;
+        g = (int ) ((96 * energy) + 63);
         b = 76;
         energy = e;
     }
@@ -43,7 +43,7 @@ public class Plip extends Creature {
      *  that you get this exactly correct.
      */
     public Color color() {
-        g = 255;
+        g = (int ) ((96 * energy) + 63);
         return color(r, g, b);
     }
 
@@ -60,7 +60,8 @@ public class Plip extends Creature {
     }
 
 
-    /** Plips gain 0.2 energy when staying due to photosynthesis. */
+    /** Plips gain 0.2 energy when staying due to photosynthesis. 
+     * Max energy is 2 */
     public void stay() {
     	if (energy >= 1.8) {
     		energy = 2.0;
